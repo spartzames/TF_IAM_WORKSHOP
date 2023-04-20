@@ -1,11 +1,16 @@
 {
-  "Version": "2012-10-17",
-  "Statement": {
-    "Effect": "Allow",
-    "Action": "sts:AssumeRole",
-    "Resource": "*",
-    "Condition": {
-      "StringLike": { "iam:ResourceTag/contractors-assume-role": "true" }
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringLike": {
+          "iam:ResourceTag/contractors-assume-role": "ture"
+        }
+      },
+      "Effect": "Allow",
+      "Resource": "*",
+      "Sid": ""
     }
-  }
+  ],
+  "Version": "2012-10-17"
 }
