@@ -19,7 +19,7 @@ resource "aws_iam_user_policy_attachment" "kthong-iam-workshop-01-policy-attach"
 }
 
 output "kthong-iam-workshop-01-password" {
-  value = aws_iam_user_login_profile.kthong-iam-workshop-01-profile.kthong-iam-workshop-01-profile-encrypted_password
+  value = aws_iam_user_login_profile.kthong-iam-workshop-01-profile.encrypted_password
 }
 
 output "kthong-iam-workshop-01-profile-keybase_password_decrypt_command" {
@@ -48,7 +48,7 @@ resource "aws_iam_user_policy_attachment" "kthong-iam-workshop-02-policy-attach"
 }
 
 output "kthong-iam-workshop-02-password" {
-  value = aws_iam_user_login_profile.kthong-iam-workshop-02-profile.kthong-iam-workshop-02-profile-encrypted_password
+  value = aws_iam_user_login_profile.kthong-iam-workshop-02-profile.encrypted_password
 }
 
 output "kthong-iam-workshop-02-profile-keybase_password_decrypt_command" {
