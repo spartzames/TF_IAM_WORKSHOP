@@ -33,7 +33,7 @@ resource "aws_iam_user" "kthong-iam-workshop-02" {
 
 resource "aws_iam_user_login_profile" "kthong-iam-workshop-02-profile" {
   user    = aws_iam_user.kthong-iam-workshop-02.name
-  pgp_key = var.pgp_key
+  pgp_key = "${base64encode(file("iam.gpg.pubkey"))}"
   password_reset_required = true
 }
 
