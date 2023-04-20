@@ -18,5 +18,5 @@ resource "aws_iam_group_membership" "Contractors-kthong-membership" {
 
 resource "aws_iam_group_policy_attachment" "Contractors-kthong-policy-attach" {
   group      = aws_iam_group.Contractors-kthong.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
 }
