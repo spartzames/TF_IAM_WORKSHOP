@@ -5,8 +5,6 @@ resource "aws_subnet" "private-ap-southeast-2a" {
 
   tags = {
     "Name" = "private-ap-southeast-2a"
-    "kubernetes.io/role/internal-elb" = "1"
-    "kubernetes.io/cluster/${var.cluster_name}" = "owned"
   }
 }
 
@@ -17,8 +15,6 @@ resource "aws_subnet" "private-ap-southeast-2b" {
 
   tags = {
     "Name" = "private-ap-southeast-2b"
-    "kubernetes.io/role/internal-elb" = "1"
-    "kubernetes.io/cluster/${var.cluster_name}" = "owned"
   }
 }
 
@@ -30,8 +26,6 @@ resource "aws_subnet" "public-ap-southeast-2a" {
 
     tags = {
         "Name" = "public-ap-southeast-2a"
-        "kubernetes.io/role/internal-elb" = "1"
-        "kubernetes.io/cluster/${var.cluster_name}" = "owned"
     }
 }
 
@@ -43,7 +37,5 @@ resource "aws_subnet" "public-ap-southeast-2b" {
 
     tags = {
         "Name" = "public-ap-southeast-2b"
-        "kubernetes.io/role/internal-elb" = "1"
-        "kubernetes.io/cluster/${var.cluster_name}" = "owned"
     }
 }
