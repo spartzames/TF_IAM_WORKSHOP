@@ -9,7 +9,6 @@ resource "aws_iam_user" "kthong-iam-workshop-01" {
 
 resource "aws_iam_user_login_profile" "kthong-iam-workshop-01-profile" {
   user    = aws_iam_user.kthong-iam-workshop-01.name
-  pgp_key = "${base64encode(file("./public-key-base64-encoded.gpg"))}"
   password_reset_required = true
 }
 
@@ -33,7 +32,6 @@ resource "aws_iam_user" "kthong-iam-workshop-02" {
 
 resource "aws_iam_user_login_profile" "kthong-iam-workshop-02-profile" {
   user    = aws_iam_user.kthong-iam-workshop-02.name
-  pgp_key = "${base64encode(file("./public-key-base64-encoded.gpg"))}"
   password_reset_required = true
 }
 
