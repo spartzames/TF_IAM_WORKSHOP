@@ -9,7 +9,7 @@ resource "aws_iam_user" "kthong-iam-workshop-01" {
 
 resource "aws_iam_user_login_profile" "kthong-iam-workshop-01-profile" {
   user    = aws_iam_user.kthong-iam-workshop-01.name
-  pgp_key = var.pgp_key
+  pgp_key = "${base64encode(file("iam.gpg.pubkey"))}"
   password_reset_required = true
 }
 
@@ -20,11 +20,6 @@ resource "aws_iam_user_policy_attachment" "kthong-iam-workshop-01-policy-attach"
 
 output "kthong-iam-workshop-01-password" {
   value = aws_iam_user_login_profile.kthong-iam-workshop-01-profile.encrypted_password
-}
-
-output "kthong-iam-workshop-01-profile-keybase_password_decrypt_command" {
-  description = "Command to decrypt the Keybase encrypted password. Returns empty string if pgp_key is not from keybase"
-  value       = local.kthong-iam-workshop-01-profile-keybase_password_decrypt_command
 }
 
 resource "aws_iam_user" "kthong-iam-workshop-02" {
@@ -50,10 +45,4 @@ resource "aws_iam_user_policy_attachment" "kthong-iam-workshop-02-policy-attach"
 output "kthong-iam-workshop-02-password" {
   value = aws_iam_user_login_profile.kthong-iam-workshop-02-profile.encrypted_password
 }
-
-output "kthong-iam-workshop-02-profile-keybase_password_decrypt_command" {
-  description = "Command to decrypt the Keybase encrypted password. Returns empty string if pgp_key is not from keybase"
-  value       = local.kthong-iam-workshop-02-profile-keybase_password_decrypt_command
-}
-
 
