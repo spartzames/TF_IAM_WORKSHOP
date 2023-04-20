@@ -1,5 +1,5 @@
-resource "aws_iam_user" "kthong-iam-workshop-01" {
-  name = "kthong-iam-workshop-01"  
+resource "aws_iam_user" "John-kthong" {
+  name = "John-kthong"  
   path = "/"
   force_destroy = true
   tags = {
@@ -7,22 +7,22 @@ resource "aws_iam_user" "kthong-iam-workshop-01" {
   }
 }
 
-resource "aws_iam_user_login_profile" "kthong-iam-workshop-01-profile" {
-  user    = aws_iam_user.kthong-iam-workshop-01.name
+resource "aws_iam_user_login_profile" "John-kthong-profile" {
+  user    = aws_iam_user.John-kthong.name
   password_reset_required = true
 }
 
-resource "aws_iam_user_policy_attachment" "kthong-iam-workshop-01-policy-attach" {
-  user = aws_iam_user.kthong-iam-workshop-01.name
+resource "aws_iam_user_policy_attachment" "John-kthong-policy-attach" {
+  user = aws_iam_user.John-kthong.name
   policy_arn = aws_iam_policy.DepartmentalEC2AccessPolicy.arn
 }
 
-output "kthong-iam-workshop-01-password" {
-  value = aws_iam_user_login_profile.kthong-iam-workshop-01-profile.encrypted_password
+output "John-kthong-password" {
+  value = aws_iam_user_login_profile.John-kthong-profile.encrypted_password
 }
 
-resource "aws_iam_user" "kthong-iam-workshop-02" {
-  name = "kthong-iam-workshop-02"  
+resource "aws_iam_user" "Sally-kthong" {
+  name = "Sally-kthong"  
   path = "/"
   force_destroy = true
   tags = {
@@ -30,17 +30,46 @@ resource "aws_iam_user" "kthong-iam-workshop-02" {
   }
 }
 
-resource "aws_iam_user_login_profile" "kthong-iam-workshop-02-profile" {
-  user    = aws_iam_user.kthong-iam-workshop-02.name
+resource "aws_iam_user_login_profile" "Sally-kthong-profile" {
+  user    = aws_iam_user.Sally-kthong.name
   password_reset_required = true
 }
 
-resource "aws_iam_user_policy_attachment" "kthong-iam-workshop-02-policy-attach" {
-  user = aws_iam_user.kthong-iam-workshop-02.name
+resource "aws_iam_user_policy_attachment" "Sally-kthong-policy-attach" {
+  user = aws_iam_user.Sally-kthong.name
   policy_arn = aws_iam_policy.ContractorRoleAssumptionPolicy.arn
 }
 
-output "kthong-iam-workshop-02-password" {
-  value = aws_iam_user_login_profile.kthong-iam-workshop-02-profile.encrypted_password
+output "Sally-kthong-password" {
+  value = aws_iam_user_login_profile.Sally-kthong-profile.encrypted_password
 }
 
+resource "aws_iam_user" "Anne-kthong" {
+  name = "Anne-kthong"  
+  path = "/"
+  force_destroy = true
+}
+
+resource "aws_iam_user_login_profile" "Anne-kthong-profile" {
+  user    = aws_iam_user.Anne-kthong.name
+  password_reset_required = true
+}
+
+output "Anne-kthong-password" {
+  value = aws_iam_user_login_profile.Anne-kthong-profile.encrypted_password
+}
+
+resource "aws_iam_user" "Bob-kthong" {
+  name = "Bob-kthong"  
+  path = "/"
+  force_destroy = true
+}
+
+resource "aws_iam_user_login_profile" "Bob-kthong-profile" {
+  user    = aws_iam_user.Bob-kthong.name
+  password_reset_required = true
+}
+
+output "Bob-kthong-password" {
+  value = aws_iam_user_login_profile.Bob-kthong-profile.encrypted_password
+}
