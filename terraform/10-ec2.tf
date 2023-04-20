@@ -9,22 +9,17 @@ resource "aws_instance" "hr_ec2_kthong" {
   }
 }
 
-resource "aws_security_group" "resource-tagging-lab-kthong" {
-  name = "resource-tagging-lab-kthong"
-  vpc_id = aws_vpc.vpc_kthong.id
-}
-
-output "public_ip" {
+output "hr_ec2_kthong_public_ip" {
   value       = aws_instance.hr_ec2_kthong.public_ip
   description = "The public IP of the Instance"
 }
 
-output "public_dns" {
+output "hr_ec2_kthong_public_dns" {
   value       = aws_instance.hr_ec2_kthong.public_dns
   description = "The Public dns of the Instance"
 }
 
-output "private_ip" {
+output "hr_ec2_kthong_private_ip" {
   value       = aws_instance.hr_ec2_kthong.private_ip
   description = "The Private_ip of the Instance"
 }
@@ -39,6 +34,22 @@ resource "aws_instance" "finance_ec2_kthong" {
     department = "FINANCE"
   }
 }
+
+output "finance_ec2_kthong_public_ip" {
+  value       = aws_instance.finance_ec2_kthong.public_ip
+  description = "The public IP of the Instance"
+}
+
+output "finance_ec2_kthong_public_dns" {
+  value       = aws_instance.finance_ec2_kthong.public_dns
+  description = "The Public dns of the Instance"
+}
+
+output "finance_ec2_kthong_private_ip" {
+  value       = aws_instance.finance_ec2_kthong.private_ip
+  description = "The Private_ip of the Instance"
+}
+
 
 resource "aws_security_group" "resource-tagging-lab-kthong" {
   name = "resource-tagging-lab-kthong"
