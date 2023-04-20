@@ -22,6 +22,11 @@ output "kthong-iam-workshop-01-password" {
   value = aws_iam_user_login_profile.kthong-iam-workshop-01-profile.kthong-iam-workshop-01-profile-encrypted_password
 }
 
+output "kthong-iam-workshop-01-profile-keybase_password_decrypt_command" {
+  description = "Command to decrypt the Keybase encrypted password. Returns empty string if pgp_key is not from keybase"
+  value       = local.kthong-iam-workshop-01-profile-keybase_password_decrypt_command
+}
+
 resource "aws_iam_user" "kthong-iam-workshop-02" {
   name = "kthong-iam-workshop-02"  
   path = "/"
@@ -46,9 +51,9 @@ output "kthong-iam-workshop-02-password" {
   value = aws_iam_user_login_profile.kthong-iam-workshop-02-profile.kthong-iam-workshop-02-profile-encrypted_password
 }
 
-output "keybase_password_decrypt_command" {
+output "kthong-iam-workshop-02-profile-keybase_password_decrypt_command" {
   description = "Command to decrypt the Keybase encrypted password. Returns empty string if pgp_key is not from keybase"
-  value       = local.keybase_password_decrypt_command
+  value       = local.kthong-iam-workshop-02-profile-keybase_password_decrypt_command
 }
 
 
