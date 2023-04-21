@@ -4,7 +4,7 @@
       "Action": "sts:AssumeRole",
       "Condition": {
         "StringLike": {
-          "iam:ResourceTag/contractors-assume-role": "ture"
+          "iam:ResourceTag/contractors-assume-role": "true"
         }
       },
       "Effect": "Allow",
